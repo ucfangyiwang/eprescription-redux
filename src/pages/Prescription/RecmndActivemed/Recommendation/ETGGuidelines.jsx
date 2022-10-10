@@ -1,4 +1,5 @@
 import React from "react";
+import searchicon from "../../../../assets/images/search-normal.svg";
 
 const ETGGuidelines = () => {
   return (
@@ -12,14 +13,10 @@ const ETGGuidelines = () => {
         <div className="row-span-1">
           <div className="flex mt-2 mb-2 bg-gray-200 p-2 rounded-md">
             <div className="w-1/12">
-              <img src="/img/search-normal.svg" />
+              <img src={searchicon} />
             </div>
             <div className="w-11/12 text-xs text-gray-400 self-center">
-              <input
-                type="text"
-                className="bg-gray-200 w-full"
-                placeholder=" Search Medicines"
-              ></input>
+              Search medicines
             </div>
           </div>
         </div>

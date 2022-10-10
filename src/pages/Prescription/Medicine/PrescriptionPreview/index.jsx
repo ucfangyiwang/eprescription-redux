@@ -1,10 +1,16 @@
 import React from 'react';
-import PrescriptionImg from "../../../assets/images/pres-logo.png"
-import Pximg from "../../../assets/images/px-img.png";
-import barcode from "../../../assets/images/barcode.png";
-
+import PrescriptionImg from "../../../../assets/images/pres-logo.png"
+import Pximg from "../../../../assets/images/px-img.png";
+import barcode from "../../../../assets/images/barcode.png";
+import dropdownimg from "../../../../assets/images/dropdown-down.svg"
+import backarrow from "../../../../assets/images/previous icon.svg";
 const PrescriptionFormat = () => {
     return (
+      <div>
+        <div className="flex items-center">
+           <img src={backarrow} alt=""/>
+           <span className="font-bold text-xl">Prescription Preview</span>
+        </div>
         <div className="flex">
         <div className="bg-white w-2/4 ">
           <div className="flex bg-emerald-600  items-center px-8 py-3">
@@ -221,7 +227,7 @@ const PrescriptionFormat = () => {
                   SAC Pharma Photo Clinics and Lab
                 </div>
                 <div className="col-span-1 justify-end self-center flex">
-                  <img src="/img/dropdown-down.svg" />
+                  <img src={dropdownimg} />
                 </div>
               </div>
             </div>
@@ -236,7 +242,7 @@ const PrescriptionFormat = () => {
               <div className="flex"><span className="inline-block w-1/4">Patient Cost</span> <span className="pl-7 text-black text-base font-bold inline-block w-3/4">$180</span></div>
             </div>
             <div className="col-span-1 justify-end self-center flex">
-              <img src="/img/dropdown-down.svg" />
+              <img src={dropdownimg} />
             </div>
           </div>
           <div className="bg-blue-50 my-2 py-2 grid grid-cols-12 px-4">
@@ -244,7 +250,7 @@ const PrescriptionFormat = () => {
               <div className="flex"><span className="inline-block w-1/4">Patient Insurance</span> <span className="pl-7 text-black text-base font-bold inline-block w-3/4">AED19PNRXYZ</span></div>
             </div>
             <div className="col-span-1 justify-end self-center flex">
-              <img src="/img/dropdown-down.svg" />
+              <img src={dropdownimg} />
             </div>
           </div>
           <div class="flex items-center mb-4">
@@ -262,7 +268,7 @@ const PrescriptionFormat = () => {
                    Patient Phone SMS
                 </div>
                 <div className="col-span-1 justify-end self-center flex">
-                  <img src="/img/dropdown-down.svg" />
+                  <img src={dropdownimg} />
                 </div>
               </div>
             </div>
@@ -272,6 +278,7 @@ const PrescriptionFormat = () => {
             <div className="w-1/12 py-1 rounded text-white bg-emerald-600  m-2 flex justify-center items-center  text-base">Print</div>
             <div className="w-1/12 py-1 rounded text-black bg-gray-300  m-2 flex justify-center items-center  text-base">Save</div>
           </div>
+        </div>
         </div>
       </div>
     );

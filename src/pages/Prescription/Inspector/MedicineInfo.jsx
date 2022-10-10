@@ -2,6 +2,7 @@ import React from "react";
 
 function MedicineInfo() {
   return (
+
     <div className="p-2">
       <div className="font-semibold text-sm pl-3">Metadoxine</div>
       <table className="w-full mt-3 border border-gray-100">
@@ -73,7 +74,9 @@ function MedicineInfo() {
           </tr>
         </tbody>
       </table>
+    
     </div>
+
   );
 }
 
