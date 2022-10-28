@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { configureStore } from "@reduxjs/toolkit";
+import drugSlice from "./getdrugSlice.jsx"
+import DrugListSlice from "./drugListSlice.jsx";
 
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import {drugsReducer} from './drug/drug.reducer'
+ 
 
-const store = createStore(drugsReducer, applyMiddleware(thunk));
-    
-  export default store;
-  
+export default configureStore({
+   reducer:{
+      drug:drugSlice,
+      druglist:DrugListSlice,
+
+   }
+})
