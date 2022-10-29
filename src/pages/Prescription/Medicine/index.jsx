@@ -26,10 +26,10 @@ const dispatch=useDispatch()
 
 
 useEffect(()=>{
-  if(lists.length>1){
+
   dispatch(reloadDrugDuplication());
-  dispatch(reloadDrugInteraction());}
-},[dispatch,lists.length])
+  dispatch(reloadDrugInteraction());
+},[dispatch, lists.length])
 
   const handleClick = (val) => {
     if (isShow === val) {

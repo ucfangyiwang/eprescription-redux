@@ -26,7 +26,6 @@ return(
        <button >added</button>
       </div>
         :  
-     
         <div className="w-1/4 bg-emerald-600 text-white p-1 text-xs rounded-md self-center text-center cursor-pointer" >
         <button className='w-full' onClick={handleadd}>add</button>
       </div>

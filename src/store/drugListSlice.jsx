@@ -23,22 +23,22 @@ const reloadDrugInteractionAPI=()=>
            if(drugList1.length>=2){
             const duplicationdata = await reloadDrugDuplicationAPI();
             return duplicationdata; 
-           }else drugList1=[] ;
+           }
            });
 
            export const reloadDrugInteraction = createAsyncThunk('druglist/reloadDrugInteraction', async () => {
             if(drugList2.length>=2){
             const Interactionndata = await reloadDrugInteractionAPI();
             return Interactionndata; 
-            }else drugList2=[];
+            }
            });
 
 
 
 const initialState={
    lists:[],
-   DrugDuplication:[],
-   DrugInteraction:[],
+   DrugDuplication:{},
+   DrugInteraction:{},
 }
 
 export const drugListSlice =createSlice({
@@ -57,16 +57,19 @@ export const drugListSlice =createSlice({
     },
     removedrug:(state,{payload})=>{
         const drug = state.lists.find((drug) => drug.name === payload.name);
-        if(!drug){
-            state.lists =state.lists.filter(item=>item!==payload)
-            drugList1 = drugList1.filter(item=>item!=={"id" : payload.id, "type" : 'product'})
-            drugList2 = drugList2.filter(item=>item!=={"id" : payload.id, "type" : 'product'})
-
+        if(drug!==""){
+            state.lists=  state.lists.filter(item=>item.id!==payload.id)
+            drugList1 = drugList1.filter(item=>item.id!==payload.id)
+            drugList2 = drugList2.filter(item=>item.id!==payload.id)
+         if(state.lists.length<2){
+            state.DrugDuplication= undefined;
+            state.DrugInteraction=undefined;
+         }
         // var index=state.lists.indexOf(payload)
         //     state.lists.splice(index, 1);
         //     drugList1.splice(index, 1);
         //     drugList2.splice(index, 1);
-        
+       
             
     }
     }
@@ -75,6 +78,7 @@ export const drugListSlice =createSlice({
 },
 extraReducers:{
     [reloadDrugDuplication.fulfilled](state,{payload}){
+
         console.log(payload);
         if(payload !==undefined){
         state.DrugDuplication=payload.data.drugDuplicateAlert;
