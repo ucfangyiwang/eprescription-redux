@@ -12,6 +12,7 @@ import allergyicon from "../../../assets/images/drug-allergy-icon.svg";
 import collapsearrow from '../../../assets/images/dropdown-down.svg'
 import {useDispatch, useSelector} from 'react-redux';
 import { removedrug} from "../../../store/drugListSlice.jsx"
+import SearchComponent from"./searchComponent"
 import { reloadDrugDuplication,reloadDrugInteraction } from '../../../store/drugListSlice.jsx'
 import ReactHtmlParser from 'html-react-parser';
 const PrescriptionPart = ({showTab}) => {
@@ -26,9 +27,12 @@ const dispatch=useDispatch()
 
 
 useEffect(()=>{
+  const timer = setTimeout(() => {
+    dispatch(reloadDrugDuplication());
+    dispatch(reloadDrugInteraction());
+  }, 1000);
+  return () => clearTimeout(timer);
 
-  dispatch(reloadDrugDuplication());
-  dispatch(reloadDrugInteraction());
 },[dispatch, lists.length])
 
   const handleClick = (val) => {
@@ -67,15 +71,7 @@ useEffect(()=>{
         </div>
       </div>
       <div className="grid row-span-full pt-2">
-        <div className="row-span-1">
-          <div className="relative flex mt-2 mb-2 bg-white p-2 rounded-md">
-            <img src={searchicon} className="pl-2 absolute" alt="search" />
-            <input
-              placeholder="Search and add new medicine"
-              className="focus:outline-none pl-8 bg-white text-xs text-black self-center w-full"
-            ></input>
-          </div>
-        </div>
+        <SearchComponent />
         {/* Drug Allergy */}
         {DrugDuplication&& DrugDuplication.length>=1 ? 
             

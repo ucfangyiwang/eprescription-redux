@@ -16,8 +16,6 @@ const reloadDrugInteractionAPI=()=>
         headers: { 'Content-Type': 'application/json' },
         body:JSON.stringify({ inputs: drugList2} ),
         }).then((res)=>res.json())
-  
-     
 
         export const reloadDrugDuplication = createAsyncThunk('druglist/reloadDrugDuplication', async () => {
            if(drugList1.length>=2){
@@ -61,16 +59,11 @@ export const drugListSlice =createSlice({
             state.lists=  state.lists.filter(item=>item.id!==payload.id)
             drugList1 = drugList1.filter(item=>item.id!==payload.id)
             drugList2 = drugList2.filter(item=>item.id!==payload.id)
-         if(state.lists.length<2){
-            state.DrugDuplication= undefined;
+         if(state.lists.length<=1){
+            state.DrugDuplication=undefined;
             state.DrugInteraction=undefined;
          }
-        // var index=state.lists.indexOf(payload)
-        //     state.lists.splice(index, 1);
-        //     drugList1.splice(index, 1);
-        //     drugList2.splice(index, 1);
-       
-            
+
     }
     }
   
